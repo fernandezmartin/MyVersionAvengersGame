@@ -8,7 +8,7 @@ import java.util.Random;
  * @version 0.1
  * This class is meabt to be used by @see Character to fight, using it to causeHarm and
  * DefendeThirSelves; its has a random indise to produce a value which is meant to be the harmcause by the object 
- * or the defense capacity in that moment, this random is kliomited by the weapons max and min value for each action
+ * or the defense capacity in that moment, this random is liomited by the weapons max and min value for each action
  *
  */
 public class Weapon {
@@ -66,6 +66,16 @@ public class Weapon {
 		setMaxiumDenfenceCapacity(90);
 		setMinimunDefenceCapacity(1);
 		setValue(new Random());
+	}
+	
+	public Weapon(String namePassed) {
+		super();
+		setNameOfWeapon(namePassed);
+		setMaxiumDamage(0);
+		setMinimunDamage(0);
+		setMaxiumDenfenceCapacity(0);
+		setMinimunDefenceCapacity(0);
+		setValue(null);
 	}
 	
 	
