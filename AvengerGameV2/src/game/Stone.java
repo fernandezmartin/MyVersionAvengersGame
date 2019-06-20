@@ -1,6 +1,12 @@
 package game;
-
 import java.util.Random;
+/**
+ * 
+ * @author Agustin Bulzomi
+ * This class is meant to be used by the @see InifinityGauntlet to produceAtacks and blockthem.
+ */
+
+
 
 public class Stone {
 	private int minLimit;
