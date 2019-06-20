@@ -48,5 +48,17 @@ public class Stone {
 		setValue(new Random());
 	}
 	
+	public int produceAtack() {
+		int atackGenerated=0;
+		atackGenerated=getValue().nextInt(getMaxLimit())+getMinLimit();
+		return atackGenerated;
+	}
+	
+	public int blockAtack() {
+		int actackBlocked=0;
+		actackBlocked=getValue().nextInt(getMaxLimit())+getMinLimit();
+		return actackBlocked;
+	}
+	
 	
 }
