@@ -79,5 +79,15 @@ public class Weapon {
 		setValue(new Random());
 	}
 	
+	public int causeHarm() {
+		int damage=0;
+		damage=getValue().nextInt(getMaxiumDamage())+getMinimunDamage();
+		return damage;
+	}
 	
+	public int defend () {
+		int defence=0;
+		defence=getValue().nextInt(getMaxiumDenfenceCapacity())+getMinimunDefenceCapacity();
+		return defence;
+	}
 }
