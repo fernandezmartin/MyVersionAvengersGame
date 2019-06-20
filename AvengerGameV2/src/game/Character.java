@@ -1,4 +1,7 @@
 package game;
+
+import java.util.ArrayList;
+
 /**
  * 
  * @author Agustin Bulzomi
@@ -9,6 +12,7 @@ package game;
 public class Character {
 		private String name;
 		private int life;
+		
 		
 		
 		private String getName() {

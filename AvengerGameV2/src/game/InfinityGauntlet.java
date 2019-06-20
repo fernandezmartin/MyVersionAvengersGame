@@ -6,9 +6,9 @@ import java.util.Random;
 /**
  * 
  * @author Agustin Bulzomi
- * @version 0.1
+ * @version 0.2
  * This class is an specification of class weapon that opverwrite  method @see {@link Weapon#causeHarm()} and @see {@link Weapon#defend()}
- *
+ *	It contains method that genrate a value for that atack method and a the defnd method
  */
 public class InfinityGauntlet extends Weapon{
 	private ArrayList<Stone> infinityStones;
@@ -61,7 +61,7 @@ public class InfinityGauntlet extends Weapon{
 		}catch (ArithmeticException e) {
 			harmToCause=0;
 		}
-		return harmToCause;
+		return harmToCause+2*getInfinityStones().size();
 	}
 	
 	@Override
@@ -72,6 +72,6 @@ public class InfinityGauntlet extends Weapon{
 		}catch (ArithmeticException e) {
 			harmBlocked=0;
 		}
-		return harmBlocked;
+		return harmBlocked+2*getInfinityStones().size();
 	}
 }
