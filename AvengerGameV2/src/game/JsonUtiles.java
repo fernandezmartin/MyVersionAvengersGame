@@ -73,4 +73,18 @@ public class JsonUtiles {
 		}
 		return contenido;
 	}
+	
+	public static String leer(String urlToFile) 
+	{
+		String contenido = "";
+		try 
+		{
+			contenido = new String(Files.readAllBytes(Paths.get(urlToFile+".json")));
+		} 
+		catch (IOException e) 
+		{
+			e.printStackTrace();
+		}
+		return contenido;
+	}
 }
