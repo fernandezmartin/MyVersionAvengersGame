@@ -20,31 +20,31 @@ public class Weapon {
 	private int maxiumDamage;
 	private Random value;
 	
-	protected String getNameOfWeapon() {
+	private String getNameOfWeapon() {
 		return nameOfWeapon;
 	}
 	private void setNameOfWeapon(String nameOfWeapon) {
 		this.nameOfWeapon = nameOfWeapon;
 	}
-	protected int getMinimunDefenceCapacity() {
+	private int getMinimunDefenceCapacity() {
 		return minimunDefenceCapacity;
 	}
 	private void setMinimunDefenceCapacity(int minimunDefenceCapacity) {
 		this.minimunDefenceCapacity = minimunDefenceCapacity;
 	}
-	protected int getMaxiumDenfenceCapacity() {
+	private int getMaxiumDenfenceCapacity() {
 		return maxiumDenfenceCapacity;
 	}
 	private void setMaxiumDenfenceCapacity(int maxiumDenfenceCapacity) {
 		this.maxiumDenfenceCapacity = maxiumDenfenceCapacity;
 	}
-	protected int getMinimunDamage() {
+	private int getMinimunDamage() {
 		return minimunDamage;
 	}
 	private void setMinimunDamage(int minimunDamage) {
 		this.minimunDamage = minimunDamage;
 	}
-	protected int getMaxiumDamage() {
+	private int getMaxiumDamage() {
 		return maxiumDamage;
 	}
 	private void setMaxiumDamage(int maxiumDamage) {
@@ -52,7 +52,7 @@ public class Weapon {
 	}
 	
 	
-	protected Random getValue() {
+	private Random getValue() {
 		return value;
 	}
 	private void setValue(Random value) {
@@ -78,8 +78,6 @@ public class Weapon {
 		setMinimunDefenceCapacity(minDef);
 		setValue(new Random());
 	}
-	
-	
 	
 	
 }
