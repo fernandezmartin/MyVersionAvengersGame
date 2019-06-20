@@ -67,5 +67,23 @@ public abstract class  Character implements Icombat {
 			return  getWeapons().keySet().toArray(new String [getWeapons().keySet().size()]);
 		}
 		
+		
+		@Override
+			public boolean equals(Object obj) {
+				boolean isEqual=false;
+				if (obj != null && obj instanceof Character) {
+					Character temporay=(Character) obj;
+					if (temporay.toString().equals(this.toString())) {
+						isEqual=true;
+					}
+				}
+				
+				return isEqual;
+			}
 	
+		@Override
+			public String toString() {
+				String strToReturn=getName();
+				return strToReturn;
+			}
 }

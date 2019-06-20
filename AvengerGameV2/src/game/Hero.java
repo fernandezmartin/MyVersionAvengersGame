@@ -61,4 +61,19 @@ public class Hero extends Character {
 			// TODO Auto-generated method stub
 			return getLife();
 		}
+		
+		@Override
+		public String toString() {
+		
+		return super.toString();
+		}
+		
+		@Override
+		public boolean equals(Object obj) {
+			boolean isEqual=false;
+			if (obj != null && obj instanceof Hero) {
+				isEqual=true;
+			}
+			return super.equals(obj)&&isEqual;
+		}
 }

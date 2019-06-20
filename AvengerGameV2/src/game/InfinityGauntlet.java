@@ -74,4 +74,22 @@ public class InfinityGauntlet extends Weapon{
 		}
 		return harmBlocked+2*getInfinityStones().size();
 	}
+	
+	@Override
+		public String toString() {
+			String strToReturn=""+getInfinityStones().size();
+			return super.toString()+" "+strToReturn;
+		}
+	
+	@Override
+		public boolean equals(Object obj) {
+			boolean isEqual=false;
+			if (obj != null && obj instanceof InfinityGauntlet) {
+				InfinityGauntlet temporary=(InfinityGauntlet) obj;
+				if (temporary.toString().equals(this.toString())) {
+					isEqual=true;
+				}
+			}
+			return isEqual;
+		}
 }

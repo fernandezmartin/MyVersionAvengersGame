@@ -100,4 +100,23 @@ public class Weapon {
 		defence=getValue().nextInt(getMaxiumDenfenceCapacity())+getMinimunDefenceCapacity();
 		return defence;
 	}
+	
+	@Override
+	public String toString() {
+		String strToReturn=getNameOfWeapon();
+		return strToReturn;
+	}
+	
+	@Override
+		public boolean equals(Object obj) {
+		boolean isEqual=false;	
+		if (obj != null && obj instanceof Weapon) {
+				Weapon temporary=(Weapon) obj;
+				if (temporary.toString().equals(this.toString())) {
+					isEqual=true;
+				}
+			}
+			return isEqual;
+		}
+	
 }

@@ -66,5 +66,18 @@ public class Stone {
 		return actackBlocked;
 	}
 	
+	@Override
+		public String toString() {
+			String strToReturn=getStoneName();
+			return strToReturn;
+		}
 	
+	@Override
+		public boolean equals(Object obj) {
+			boolean isEqual=false;
+			if (obj != null && obj instanceof Stone) {
+				isEqual=true;
+			}
+			return isEqual;
+		}
 }

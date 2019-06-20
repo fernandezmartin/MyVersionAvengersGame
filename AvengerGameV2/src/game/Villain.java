@@ -61,7 +61,10 @@ public class Villain extends Character{
 
 	@Override
 	public void getAtacked(int damageRecieved) {
-		super.setLife(getLife()-(damageRecieved-defendYourself()));
+		int defendCap=defendYourself();
+		if (damageRecieved >= defendCap) {
+			super.setLife(getLife()-(damageRecieved-defendCap));
+		}
 		
 	}
 
@@ -69,5 +72,23 @@ public class Villain extends Character{
 	public int lifeLeft() {
 		// TODO Auto-generated method stub
 		return super.getLife();
+	}
+	
+	@Override
+	public String toString() {
+		
+		return super.toString() +" "+ getAmbition();
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		boolean isEqual=false;
+		if (obj != null && obj instanceof Villain) {
+			Villain temporary=(Villain) obj;
+			if (temporary.toString().equals(this.toString())){
+				isEqual=true;
+			}
+		}
+		return super.equals(obj)&&isEqual;
 	}
 }
