@@ -1,5 +1,12 @@
 package game;
-
+/**
+ * 
+ * @author Agustin Bulzomi
+ * This class is meat to be used for making two objecto fight to death.
+ *
+ * @param <T> Whatever implments icombat
+ * @param <K> Whatever implments icombat
+ */
 public class Battle <T extends Icombat, K extends Icombat> {
 	
 	public Battle() {
