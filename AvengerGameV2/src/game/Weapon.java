@@ -11,7 +11,7 @@ import java.util.Random;
  * or the defense capacity in that moment, this random is kliomited by the weapons max and min value for each action
  *
  */
-public class Weapon {
+public abstract class Weapon {
 		
 	private String nameOfWeapon;
 	private int minimunDefenceCapacity;
@@ -79,7 +79,8 @@ public class Weapon {
 		setValue(new Random());
 	}
 	
-	
+	public abstract int causeHarm();
+	public abstract int defend();
 	
 	
 }
