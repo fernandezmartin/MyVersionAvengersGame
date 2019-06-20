@@ -1,4 +1,7 @@
 package game;
+
+import java.util.HashMap;
+
 /**
  * 
  * @author Agustin Bulzomi
@@ -19,7 +22,43 @@ public class Hero extends Character {
 			super();
 		}
 		
-		public Hero(String namePased, int lifepased) {
-			super(namePased,lifepased);
+		public Hero(String namePased, int lifepased, HashMap<String, Weapon> weaponsPassed) {
+			super(namePased,lifepased, weaponsPassed);
+		}
+
+		@Override
+		public int atack() {
+			int value=0;
+			while (Character.nameOfWeaponChoosedByUser=="");
+			Weapon ToUse=super.getWeapon(Character.nameOfWeaponChoosedByUser);
+			if (ToUse != null) {
+				value=ToUse.defend();
+			}
+			Character.nameOfWeaponChoosedByUser="";
+			return value;
+		}
+
+		@Override
+		public int defendYourself() {
+			int value=0;
+			while (Character.nameOfWeaponChoosedByUser=="");
+			Weapon ToUse=super.getWeapon(Character.nameOfWeaponChoosedByUser);
+			if (ToUse != null) {
+				value=ToUse.defend();
+			}
+			Character.nameOfWeaponChoosedByUser="";
+			return value;
+		}
+
+		@Override
+		public void getAtacked(int damageRecieved) {
+			super.setLife(super.getLife()-(damageRecieved-defendYourself()));
+			
+		}
+
+		@Override
+		public int lifeLeft() {
+			// TODO Auto-generated method stub
+			return getLife();
 		}
 }

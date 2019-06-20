@@ -1,4 +1,8 @@
 package game;
+
+import java.util.HashMap;
+import java.util.Random;
+
 /**
  * 
  * @author Agustin Bulzomi
@@ -24,8 +28,46 @@ public class Villain extends Character{
 		setAmbition(0);
 	}
 	
-	public Villain(String namePased, int lifePased, int ambitionPased) {
-		super(namePased, lifePased);
+	public Villain(String namePased, int lifePased, HashMap<String, Weapon> weaponsPassed,int ambitionPased) {
+		super(namePased, lifePased, weaponsPassed);
 		setAmbition(ambitionPased);
+	}
+
+	@Override
+	public int atack() {
+		int value=0;
+		String []keys=super.getWeaponsKeys();
+		if (keys.length >0) {
+			String keySelected=keys[new Random().nextInt(keys.length)];
+			Weapon ToUse=super.getWeapon(keySelected);
+			value=ToUse.causeHarm();
+		}
+		
+		return value;
+	}
+
+	@Override
+	public int defendYourself() {
+		int value=0;
+		String []keys=super.getWeaponsKeys();
+		if (keys.length >0) {
+			String keySelected=keys[new Random().nextInt(keys.length)];
+			Weapon ToUse=super.getWeapon(keySelected);
+			value=ToUse.defend();
+		}
+		
+		return value;
+	}
+
+	@Override
+	public void getAtacked(int damageRecieved) {
+		super.setLife(getLife()-(damageRecieved-defendYourself()));
+		
+	}
+
+	@Override
+	public int lifeLeft() {
+		// TODO Auto-generated method stub
+		return super.getLife();
 	}
 }

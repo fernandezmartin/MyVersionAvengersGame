@@ -16,7 +16,9 @@ public class Battle <T extends Icombat, K extends Icombat> {
 	public String fightToDeath(T playerOne, K playerTwo ) {
 		String winner="";
 		while(playerOne.lifeLeft()>0 && playerTwo.lifeLeft()>0) {
-			
+			OneAtackEach(playerOne, playerTwo);
+			System.out.println("Jugador1: "+playerOne.lifeLeft());
+			System.out.println("Jugador2: "+playerTwo.lifeLeft());
 		}
 		
 		if (playerOne.lifeLeft()<=0&&playerTwo.lifeLeft()<=0) {
@@ -29,6 +31,8 @@ public class Battle <T extends Icombat, K extends Icombat> {
 			}
 				
 		}
+		
+		
 		return winner;
 	}
 	
