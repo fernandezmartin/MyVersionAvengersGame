@@ -2,6 +2,9 @@ package game;
 
 import java.util.Random;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 /**
  * 
  * @author Agustin Bulzomi
@@ -119,4 +122,20 @@ public class Weapon {
 			return isEqual;
 		}
 	
+	public JSONObject getJsonFormat() {
+		JSONObject toReturn=new JSONObject();
+		try {
+			toReturn.put("NameOfWeapon", this.getNameOfWeapon());
+			toReturn.put("MaxDam", this.getMaxiumDamage());
+			toReturn.put("MinDam", this.getMinimunDamage());
+			toReturn.put("MaxDef", this.getMaxiumDenfenceCapacity());
+			toReturn.put("MinDef", this.getMinimunDefenceCapacity());
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		return toReturn;
+	}
 }

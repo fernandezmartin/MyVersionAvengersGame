@@ -2,6 +2,13 @@ package game;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.concurrent.Semaphore;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 /**
  * 
@@ -14,9 +21,7 @@ public abstract class  Character implements Icombat {
 		private String name;
 		private int life;
 		private HashMap<String, Weapon> weapons;
-		public static String nameOfWeaponChoosedByUser;
-		
-		
+
 		
 		private String getName() {
 			return name;
@@ -48,14 +53,13 @@ public abstract class  Character implements Icombat {
 			setLife(0);
 			setName("");
 			setWeapons(new HashMap<String, Weapon>());
-			Character.nameOfWeaponChoosedByUser="";
+			
 		}
 		
 		public Character(String namePassed, int lifePassed,  HashMap<String, Weapon> weaponsPassed) {
 			setLife(lifePassed);
 			setName(namePassed);
 			setWeapons(weaponsPassed);
-			Character.nameOfWeaponChoosedByUser="";
 			
 		}
 		
@@ -86,4 +90,27 @@ public abstract class  Character implements Icombat {
 				String strToReturn=getName();
 				return strToReturn;
 			}
+		
+		public JSONObject getJsonFormt() {
+			JSONObject format= new JSONObject();
+			try {
+				format.put("Name", this.getName());
+				format.put("Life", this.getLife());
+				JSONArray allWeapons=new JSONArray();
+				Iterator it=getWeapons().entrySet().iterator();
+				while(it.hasNext()) {
+					Map.Entry entry=(Map.Entry)it.next();
+					Weapon w=(Weapon)entry.getValue();
+					JSONObject js=w.getJsonFormat();
+					allWeapons.put(js);
+					
+				}
+				format.put("Weapons", allWeapons);
+			} catch (JSONException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			return format;
+		}
 }

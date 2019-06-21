@@ -6,8 +6,8 @@ import java.util.HashMap;
  * 
  * @author Agustin Bulzomi
  * @version 0.1
- * This class is meant to be use to create objects that are specifications of Character.
- * It extends from @see Character
+ * This class is meant to be use to create objects that are specifications of StaticSemaphore.
+ * It extends from @see StaticSemaphore
  *
  */
 public class Hero extends Character {
@@ -29,24 +29,50 @@ public class Hero extends Character {
 		@Override
 		public int atack() {
 			int value=0;
-			while (Character.nameOfWeaponChoosedByUser=="");
-			Weapon ToUse=super.getWeapon(Character.nameOfWeaponChoosedByUser);
-			if (ToUse != null) {
-				value=ToUse.defend();
+			try {
+				StaticSemaphore.validString.acquire();
+				
+				StaticSemaphore.mutex.acquire();
+				Weapon ToUse=super.getWeapon(StaticSemaphore.nameOfWeaponChoosedByUser);
+				if (ToUse != null) {
+					value=ToUse.causeHarm();
+				}
+				StaticSemaphore.nameOfWeaponChoosedByUser="";
+				StaticSemaphore.usedString.release();
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
-			Character.nameOfWeaponChoosedByUser="";
+			finally {
+				StaticSemaphore.mutex.release();
+			}
+			
 			return value;
 		}
 
 		@Override
 		public int defendYourself() {
 			int value=0;
-			while (Character.nameOfWeaponChoosedByUser=="");
-			Weapon ToUse=super.getWeapon(Character.nameOfWeaponChoosedByUser);
-			if (ToUse != null) {
-				value=ToUse.defend();
+			try {
+				StaticSemaphore.validString.acquire();
+				
+				StaticSemaphore.mutex.acquire();
+				Weapon ToUse=super.getWeapon(StaticSemaphore.nameOfWeaponChoosedByUser);
+				if (ToUse != null) {
+					value=ToUse.defend();
+					
+				}
+				
+				StaticSemaphore.nameOfWeaponChoosedByUser="";
+				StaticSemaphore.usedString.release();
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
-			Character.nameOfWeaponChoosedByUser="";
+			finally {
+				StaticSemaphore.mutex.release();
+			}
+			
 			return value;
 		}
 
@@ -76,4 +102,6 @@ public class Hero extends Character {
 			}
 			return super.equals(obj)&&isEqual;
 		}
+		
+		
 }

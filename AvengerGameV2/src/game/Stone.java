@@ -6,6 +6,9 @@ import java.util.Random;
  * This class is meant to be used by the @see InifinityGauntlet to produceAtacks and blockthem.
  */
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 
 
 public class Stone {
@@ -80,4 +83,18 @@ public class Stone {
 			}
 			return isEqual;
 		}
+	
+	public JSONObject getJsonFormat() {
+		JSONObject toReturn= new JSONObject();
+		try {
+			toReturn.put("stoneName",this.getStoneName());
+			toReturn.put("Max", this.getMaxLimit());
+			toReturn.put("Min", this.getMinLimit());
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return toReturn;
+		
+	}
 }

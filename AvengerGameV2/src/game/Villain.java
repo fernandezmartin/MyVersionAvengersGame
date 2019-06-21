@@ -3,6 +3,9 @@ package game;
 import java.util.HashMap;
 import java.util.Random;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 /**
  * 
  * @author Agustin Bulzomi
@@ -90,5 +93,17 @@ public class Villain extends Character{
 			}
 		}
 		return super.equals(obj)&&isEqual;
+	}
+	
+	@Override
+	public JSONObject getJsonFormt() {
+		JSONObject toReturn= super.getJsonFormt();
+		try {
+			toReturn.put("ambition", this.getAmbition());
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return toReturn;
 	}
 }

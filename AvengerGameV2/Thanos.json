@@ -1,0 +1,1 @@
+{"Weapons":[{"MinDam":50,"MaxDef":40,"NameOfWeapon":"StormBreaker","MinDef":10,"MaxDam":100},{"MinDam":30,"MaxDef":30,"NameOfWeapon":"CapShield","MinDef":10,"MaxDam":40},{"MinDam":50,"MaxDef":35,"NameOfWeapon":"Mjolnir","MinDef":20,"MaxDam":80}],"ambition":10,"Life":10000,"Name":"Thanos"}

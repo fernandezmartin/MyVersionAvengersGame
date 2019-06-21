@@ -3,6 +3,10 @@ package game;
 import java.util.ArrayList;
 import java.util.Random;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 /**
  * 
  * @author Agustin Bulzomi
@@ -33,6 +37,11 @@ public class InfinityGauntlet extends Weapon{
 	
 	public InfinityGauntlet(ArrayList<Stone> stoneForTheGauntlet) {
 		super("InfinityGauntlet");
+		setInfinityStones(stoneForTheGauntlet);
+	}
+	
+	public InfinityGauntlet(String nameOfWeaponPassed, int maxDam, int minDam, int maxDef, int minDef,ArrayList<Stone> stoneForTheGauntlet) {
+		super(nameOfWeaponPassed,maxDam,minDam,maxDef,minDef);
 		setInfinityStones(stoneForTheGauntlet);
 	}
 	
@@ -92,4 +101,23 @@ public class InfinityGauntlet extends Weapon{
 			}
 			return isEqual;
 		}
+	
+	@Override
+	public JSONObject getJsonFormat() {
+		JSONObject upper=super.getJsonFormat();
+		try {
+			
+			JSONArray stones= new JSONArray();
+			for (int i = 0; i < getInfinityStones().size(); i++) {
+				stones.put(getInfinityStones().get(i).getJsonFormat());
+			} 
+			upper.put("Stones", stones);
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		return upper;
+	}
 }
