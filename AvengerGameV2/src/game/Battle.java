@@ -1,4 +1,7 @@
 package game;
+
+import javax.swing.plaf.SliderUI;
+
 /**
  * 
  * @author Agustin Bulzomi
@@ -20,8 +23,8 @@ public class Battle <T extends  Icombat, K extends Icombat> {
 		String winner="";
 		while(playerOne.lifeLeft()>0 && playerTwo.lifeLeft()>0) {
 			OneAtackEach(playerOne, playerTwo);
-			System.out.println("Jugador1: "+playerOne.lifeLeft());
-			System.out.println("Jugador2: "+playerTwo.lifeLeft());
+			System.out.println("Player1: "+playerOne.lifeLeft());
+			System.out.println("Player2: "+playerTwo.lifeLeft());
 		
 		}
 		

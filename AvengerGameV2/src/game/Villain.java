@@ -41,6 +41,7 @@ public class Villain extends Character{
 		int value=0;
 		String []keys=super.getWeaponsKeys();
 		if (keys.length >0) {
+			
 			String keySelected=keys[new Random().nextInt(keys.length)];
 			Weapon ToUse=super.getWeapon(keySelected);
 			value=ToUse.causeHarm();

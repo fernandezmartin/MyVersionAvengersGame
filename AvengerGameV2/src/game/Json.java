@@ -39,6 +39,7 @@ public class Json {
 						int min=stone.getInt("Min");
 						stonesJava.add(new Stone(nameOfStone, max, min));
 					}
+					weaponsJava.put("InfinityGauntlet", new InfinityGauntlet("InfinityGauntlet",0,0,0,0,stonesJava));
 
 				}else {
 					weaponsJava.put(nameOfWeapon, new Weapon (nameOfWeapon, MaxD,MinD,MaxDf,MinDf));

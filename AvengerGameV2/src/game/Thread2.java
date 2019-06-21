@@ -10,11 +10,14 @@ public class Thread2 implements Runnable{
 
 	@Override
 	public void run() {
+			String result= new String("");
 			Battle<Character, Character> game = new Battle<Character, Character>();
 			Character playerOne=Json.bringUpCharacter(StaticSemaphore.choosed);
 			Character playerTwo=Json.bringUpCharacter("Thanos");
-			game.fightToDeath(playerOne, playerTwo);
-			System.out.println("Exito");
+			result=game.fightToDeath(playerOne, playerTwo);
+			PlayersFile.writeFile(result);
+			
+			
 	}
 		
 }

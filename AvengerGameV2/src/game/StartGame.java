@@ -7,257 +7,243 @@ import java.awt.*;
 import java.awt.event.*;
 
 /**
- * @author Feuereisen
- * this class use swing to make the graphic interface of this game on the third screen where you attack Thanos(the enemy) selecting the respective weapons
- /**
-  * StartGame
-  */
- public class StartGame extends JFrame implements ActionListener {
-    private JLabel label0 ,label1, label2, label3, label4 , label5, label6, label7, label8, label11;
-    private String name = "";
-    private JMenuBar mb;
-    private JMenu menuOptions;
-    private JButton button, button1, button2, button3;
-    private JMenuItem out, playAgain;
-    private String character;   
-    
-    
-    
-    
-    
-    
-    public  StartGame(String guest, String characterChoosed){
-    	this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-    	this.character=characterChoosed;
-        setLayout(null);
-        setTitle(guest);
-        name = guest;
-        getContentPane().setBackground(Color.BLACK);
+ * @author Feuereisen this class use swing to make the graphic interface of this
+ *         game on the third screen where you attack Thanos(the enemy) selecting
+ *         the respective weapons /** StartGame
+ */
+public class StartGame extends JFrame implements ActionListener {
+	private JLabel label0, label1, label2, label3, label4, label5, label6, label7, label8, label11;
+	private String name = "";
+	private JMenuBar mb;
+	private JMenu menuOptions;
+	private JButton button, button1, button2, button3;
+	private JMenuItem out, playAgain;
+	private String character;
 
+	public StartGame(String guest, String characterChoosed) {
+		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+		this.character = characterChoosed;
+		setLayout(null);
+		setTitle(guest);
+		name = guest;
+		getContentPane().setBackground(Color.BLACK);
 
-        mb = new JMenuBar();
-        mb.setBackground(Color.DARK_GRAY);
-        setJMenuBar(mb);
-    
-        menuOptions = new  JMenu("Options");
-        menuOptions.setBackground(Color.DARK_GRAY);
-        menuOptions.setFont(new Font("Lucida Calligraphy", 1, 14));
-        menuOptions.setForeground(new Color(200,5,19));
-        mb.add(menuOptions);
+		mb = new JMenuBar();
+		mb.setBackground(Color.DARK_GRAY);
+		setJMenuBar(mb);
 
-        playAgain = new JMenuItem("Play Again");
-        playAgain.setFont(new Font("Lucida Calligraphy",1,14));
-        playAgain.setForeground(Color.DARK_GRAY);
-        menuOptions.add(playAgain);
-        playAgain.addActionListener(this);
+		menuOptions = new JMenu("Options");
+		menuOptions.setBackground(Color.DARK_GRAY);
+		menuOptions.setFont(new Font("Lucida Calligraphy", 1, 14));
+		menuOptions.setForeground(new Color(200, 5, 19));
+		mb.add(menuOptions);
 
-        out = new JMenuItem("Out");
-        out.setFont(new Font("Lucida Calligraphy", 1,14));
-        out.setForeground(Color.DARK_GRAY);
-        menuOptions.add(out);
-        out.addActionListener(this);
+		playAgain = new JMenuItem("Play Again");
+		playAgain.setFont(new Font("Lucida Calligraphy", 1, 14));
+		playAgain.setForeground(Color.DARK_GRAY);
+		menuOptions.add(playAgain);
+		playAgain.addActionListener(this);
 
-        setIconImage(new ImageIcon(getClass().getResource("images/icon2.png")).getImage());
+		out = new JMenuItem("Out");
+		out.setFont(new Font("Lucida Calligraphy", 1, 14));
+		out.setForeground(Color.DARK_GRAY);
+		menuOptions.add(out);
+		out.addActionListener(this);
 
+		setIconImage(new ImageIcon(getClass().getResource("images/icon2.png")).getImage());
 
+		if (character == "Thor") {
+			/*
+			 * ImageIcon image4 = new ImageIcon(getClass().getResource("images/win.png"));
+			 * // WIN label4 = new JLabel(image4); label4.setBounds(0,0,1000,700);
+			 * add(label4);
+			 * 
+			 * ImageIcon image11 = new
+			 * ImageIcon(getClass().getResource("images/gameOver.png")); // GAME OVER
+			 * label11 = new JLabel(image11); label11.setBounds(0,0,1000,700); add(label11);
+			 */
+			ImageIcon image0 = new ImageIcon(getClass().getResource("images/thanos2.png"));
+			label0 = new JLabel(image0);
+			label0.setBounds(225, -20, 1000, 700);
+			add(label0);
 
-        if( character == "Thor"){
-        /*    
-            ImageIcon image4 = new ImageIcon(getClass().getResource("images/win.png")); // WIN
-            label4 = new JLabel(image4);
-            label4.setBounds(0,0,1000,700);
-            add(label4);
-        
-            ImageIcon image11 = new ImageIcon(getClass().getResource("images/gameOver.png")); // GAME OVER
-            label11 = new JLabel(image11);
-            label11.setBounds(0,0,1000,700);
-            add(label11);
-       */     
-            ImageIcon image0 = new ImageIcon(getClass().getResource("images/thanos2.png"));
-            label0 = new JLabel(image0);
-            label0.setBounds(225,-20,1000,700);
-            add(label0);
+			ImageIcon image = new ImageIcon(getClass().getResource("images/thorC.png"));
+			label1 = new JLabel(image);
+			label1.setBounds(-250, -30, 1000, 700);
+			add(label1);
 
-            ImageIcon image = new ImageIcon(getClass().getResource("images/thorC.png"));
-            label1 = new JLabel(image);
-            label1.setBounds(-250,-30,1000,700);
-            add(label1);
+			ImageIcon image7 = new ImageIcon(getClass().getResource("images/M.png"));
+			label7 = new JLabel(image7);
+			label7.setBounds(0, -15, 1000, 700);
+			add(label7);
 
-            ImageIcon image7 = new ImageIcon(getClass().getResource("images/M.png"));
-            label7 = new JLabel(image7);
-            label7.setBounds( 0, -15,1000,700);
-            add(label7);
-            
-            button = new JButton(""); // Button for Mjolnir
-            button.setBounds(458,287 , 100, 100);
-            button.addActionListener(this);
-            button.setOpaque(false);
-            button.setContentAreaFilled(false);
-            button.setBorderPainted(false);
-            add(button);
+			button = new JButton(""); // Button for Mjolnir
+			button.setBounds(458, 287, 100, 100);
+			button.addActionListener(this);
+			button.setOpaque(false);
+			button.setContentAreaFilled(false);
+			button.setBorderPainted(false);
+			add(button);
 
-            ImageIcon image8 = new ImageIcon(getClass().getResource("images/S.png"));
-            label8 = new JLabel(image8);
-            label8.setBounds( 5, 130,1000,700);
-            add(label8);
+			ImageIcon image8 = new ImageIcon(getClass().getResource("images/S.png"));
+			label8 = new JLabel(image8);
+			label8.setBounds(5, 130, 1000, 700);
+			add(label8);
 
-            button1 = new JButton(""); // button for StormBreaker
-            button1.setBounds(458,420 , 100, 100);
-            button1.addActionListener(this);
-            button1.setOpaque(false);
-            button1.setContentAreaFilled(false);
-            button1.setBorderPainted(false);
-            add(button1);
+			button1 = new JButton(""); // button for StormBreaker
+			button1.setBounds(458, 420, 100, 100);
+			button1.addActionListener(this);
+			button1.setOpaque(false);
+			button1.setContentAreaFilled(false);
+			button1.setBorderPainted(false);
+			add(button1);
 
-            ImageIcon image2 = new ImageIcon(getClass().getResource("images/shield.png"));
-            label2 = new JLabel(image2);
-            label2.setBounds( 3, -140,1000,700);
-            add(label2);
+			ImageIcon image2 = new ImageIcon(getClass().getResource("images/shield.png"));
+			label2 = new JLabel(image2);
+			label2.setBounds(3, -140, 1000, 700);
+			add(label2);
 
-            button3 = new JButton(""); // button for Shield
-            button3.setBounds(458,160 , 100, 100);
-            button3.addActionListener(this);
-            button3.setOpaque(false);
-            button3.setContentAreaFilled(false);
-            button3.setBorderPainted(false);
-            add(button3);
+			button3 = new JButton(""); // button for Shield
+			button3.setBounds(458, 160, 100, 100);
+			button3.addActionListener(this);
+			button3.setOpaque(false);
+			button3.setContentAreaFilled(false);
+			button3.setBorderPainted(false);
+			add(button3);
 
-            ImageIcon image6 = new ImageIcon(getClass().getResource("images/fire2.jpg"));
-            label6 = new JLabel(image6);
-            label6.setBounds( 0, 0,1000,700);
-            add(label6);
+			ImageIcon image6 = new ImageIcon(getClass().getResource("images/fire2.jpg"));
+			label6 = new JLabel(image6);
+			label6.setBounds(0, 0, 1000, 700);
+			add(label6);
 
-          
-            
+		}
+		if (character == "xika") {
 
-        }if(character == "xika"){
-             
-            ImageIcon image0 = new ImageIcon(getClass().getResource("images/thanos2.png"));
-            label0 = new JLabel(image0);
-            label0.setBounds(225,-20,1000,700);
-            add(label0);
+			ImageIcon image0 = new ImageIcon(getClass().getResource("images/thanos2.png"));
+			label0 = new JLabel(image0);
+			label0.setBounds(225, -20, 1000, 700);
+			add(label0);
 
-            ImageIcon image = new ImageIcon(getClass().getResource("images/xika.png"));
-            label1 = new JLabel(image);
-            label1.setBounds(-150,-10,1000,700);
-            add(label1);
+			ImageIcon image = new ImageIcon(getClass().getResource("images/xika.png"));
+			label1 = new JLabel(image);
+			label1.setBounds(-150, -10, 1000, 700);
+			add(label1);
 
-            ImageIcon image3 = new ImageIcon(getClass().getResource("images/antorxa.png"));
-            label3 = new JLabel(image3);
-            label3.setBounds(350,-200,1000,700);
-            add(label3);
-    
-            ImageIcon image4 = new ImageIcon(getClass().getResource("images/antorxa2.png"));
-            label4 = new JLabel(image4);
-            label4.setBounds(-360,-200,1000,700);
-            add(label4);
+			ImageIcon image3 = new ImageIcon(getClass().getResource("images/antorxa.png"));
+			label3 = new JLabel(image3);
+			label3.setBounds(350, -200, 1000, 700);
+			add(label3);
 
-            ImageIcon image2 = new ImageIcon(getClass().getResource("images/cloud.png"));
-            label2 = new JLabel(image2);
-            label2.setBounds(0,-300,1000,700);
-            add(label2);
+			ImageIcon image4 = new ImageIcon(getClass().getResource("images/antorxa2.png"));
+			label4 = new JLabel(image4);
+			label4.setBounds(-360, -200, 1000, 700);
+			add(label4);
 
-            ImageIcon image5 = new ImageIcon(getClass().getResource("images/stones.png"));
-            label5 = new JLabel(image5);
-            label5.setBounds( 0,-80,1000,700);
-            add(label5);
+			ImageIcon image2 = new ImageIcon(getClass().getResource("images/cloud.png"));
+			label2 = new JLabel(image2);
+			label2.setBounds(0, -300, 1000, 700);
+			add(label2);
 
-            
-            ImageIcon image6 = new ImageIcon(getClass().getResource("images/ray4.png"));
-            label6 = new JLabel(image6);
-            label6.setBounds( 30,-30,1000,700);
-            add(label6);
+			ImageIcon image5 = new ImageIcon(getClass().getResource("images/stones.png"));
+			label5 = new JLabel(image5);
+			label5.setBounds(0, -80, 1000, 700);
+			add(label5);
 
-        }if(character == "robert"){
+			ImageIcon image6 = new ImageIcon(getClass().getResource("images/ray4.png"));
+			label6 = new JLabel(image6);
+			label6.setBounds(30, -30, 1000, 700);
+			add(label6);
 
-            
-            ImageIcon image0 = new ImageIcon(getClass().getResource("images/thanos2.png"));
-            label0 = new JLabel(image0);
-            label0.setBounds(225,-20,1000,700);
-            add(label0);
+		}
+		if (character == "robert") {
 
-            ImageIcon image = new ImageIcon(getClass().getResource("images/robertC.png"));
-            label1 = new JLabel(image);
-            label1.setBounds(-200,0,1000,700);
-            add(label1);
-            ImageIcon image5 = new ImageIcon(getClass().getResource("images/stormPlace.jpg"));
-            label5 = new JLabel(image5);
-            label5.setBounds(0,-20,1000,700);
-            add(label5);
+			ImageIcon image0 = new ImageIcon(getClass().getResource("images/thanos2.png"));
+			label0 = new JLabel(image0);
+			label0.setBounds(225, -20, 1000, 700);
+			add(label0);
 
-        }if(character == "captain"){
-        /*    
-            ImageIcon image6 = new ImageIcon(getClass().getResource("images/win.png")); //WIN
-            label6 = new JLabel(image6);
-            label6.setBounds(0,0,1000,700);
-            add(label6);
-        
-            ImageIcon image4 = new ImageIcon(getClass().getResource("images/gameOver.png")); // GAME OVER
-            label4 = new JLabel(image4);
-            label4.setBounds(0,0,1000,700);
-            add(label4);
-        */    
-            ImageIcon image0 = new ImageIcon(getClass().getResource("images/thanos.png"));
-            label0 = new JLabel(image0);
-            label0.setBounds(250,-30,1000,700);
-            add(label0);
+			ImageIcon image = new ImageIcon(getClass().getResource("images/robertC.png"));
+			label1 = new JLabel(image);
+			label1.setBounds(-200, 0, 1000, 700);
+			add(label1);
+			ImageIcon image5 = new ImageIcon(getClass().getResource("images/stormPlace.jpg"));
+			label5 = new JLabel(image5);
+			label5.setBounds(0, -20, 1000, 700);
+			add(label5);
 
-            ImageIcon image = new ImageIcon(getClass().getResource("images/capitan2.png"));
-            label1 = new JLabel(image);
-            label1.setBounds(-250,-30,1000,700);
-            add(label1);
+		}
+		if (character == "Captain") {
+			/*
+			 * ImageIcon image6 = new ImageIcon(getClass().getResource("images/win.png"));
+			 * //WIN label6 = new JLabel(image6); label6.setBounds(0,0,1000,700);
+			 * add(label6);
+			 * 
+			 * ImageIcon image4 = new
+			 * ImageIcon(getClass().getResource("images/gameOver.png")); // GAME OVER label4
+			 * = new JLabel(image4); label4.setBounds(0,0,1000,700); add(label4);
+			 */
+			
+	        
+			ImageIcon image0 = new ImageIcon(getClass().getResource("images/thanos.png"));
+			label0 = new JLabel(image0);
+			label0.setBounds(250, -30, 1000, 700);
+			add(label0);
 
-            ImageIcon image8 = new ImageIcon(getClass().getResource("images/S.png"));
-            label8 = new JLabel(image8);
-            label8.setBounds( -5, 130,1000,700);
-            add(label8);
+			ImageIcon image = new ImageIcon(getClass().getResource("images/capitan2.png"));
+			label1 = new JLabel(image);
+			label1.setBounds(-250, -30, 1000, 700);
+			add(label1);
 
-            button1 = new JButton(""); // button for StormBreaker
-            button1.setBounds(450,420 , 100, 100);
-            button1.addActionListener(this);
-            button1.setOpaque(false);
-            button1.setContentAreaFilled(false);
-            button1.setBorderPainted(false);
-            add(button1);
+			ImageIcon image8 = new ImageIcon(getClass().getResource("images/S.png"));
+			label8 = new JLabel(image8);
+			label8.setBounds(-5, 130, 1000, 700);
+			add(label8);
 
-            ImageIcon image7 = new ImageIcon(getClass().getResource("images/M.png"));
-            label7 = new JLabel(image7);
-            label7.setBounds( 0, -15,1000,700);
-            add(label7);
+			button1 = new JButton(""); // button for StormBreaker
+			button1.setBounds(450, 420, 100, 100);
+			button1.addActionListener(this);
+			button1.setOpaque(false);
+			button1.setContentAreaFilled(false);
+			button1.setBorderPainted(false);
+			add(button1);
 
-            button = new JButton(""); // Button for Mjrefrecd
-            button.setBounds(458,287 , 100, 100);
-            button.addActionListener(this);
-            button.setOpaque(false);
-            button.setContentAreaFilled(false);
-            button.setBorderPainted(false);
-            add(button);
+			ImageIcon image7 = new ImageIcon(getClass().getResource("images/M.png"));
+			label7 = new JLabel(image7);
+			label7.setBounds(0, -15, 1000, 700);
+			add(label7);
 
-            ImageIcon image2 = new ImageIcon(getClass().getResource("images/shield.png"));
-            label2 = new JLabel(image2);
-            label2.setBounds( 8, -137,1000,700);
-            add(label2);
+			button = new JButton(""); // Button for Mjrefrecd
+			button.setBounds(458, 287, 100, 100);
+			button.addActionListener(this);
+			button.setOpaque(false);
+			button.setContentAreaFilled(false);
+			button.setBorderPainted(false);
+			add(button);
 
-            button3 = new JButton(""); // button for Shield
-            button3.setBounds(458,160 , 100, 100);
-            button3.addActionListener(this);
-            button3.setOpaque(false);
-            button3.setContentAreaFilled(false);
-            button3.setBorderPainted(false);
-            add(button3);
+			ImageIcon image2 = new ImageIcon(getClass().getResource("images/shield.png"));
+			label2 = new JLabel(image2);
+			label2.setBounds(8, -137, 1000, 700);
+			add(label2);
 
-            ImageIcon image5 = new ImageIcon(getClass().getResource("images/city2.jpg"));
-            label5 = new JLabel(image5);
-            label5.setBounds(0,0,1000,700);
-            add(label5);
-            
-        }
+			button3 = new JButton(""); // button for Shield
+			button3.setBounds(458, 160, 100, 100);
+			button3.addActionListener(this);
+			button3.setOpaque(false);
+			button3.setContentAreaFilled(false);
+			button3.setBorderPainted(false);
+			add(button3);
 
+			ImageIcon image5 = new ImageIcon(getClass().getResource("images/city2.jpg"));
+			label5 = new JLabel(image5);
+			label5.setBounds(0, 0, 1000, 700);
+			add(label5);
 
-        StaticSemaphore.t1.start();
-    }
-    
-   /**
+		}
+
+		StaticSemaphore.t1.start();
+	}
+
+	/**
     * the method actionPerformed produce the events of the respective buttons
     */
 
@@ -275,6 +261,10 @@ import java.awt.event.*;
         	finally {
         		StaticSemaphore.mutex.release();
         	}
+        	
+        	
+
+
         }if(e.getSource() == button1){ // button for StormBreaker
         	try {
 				StaticSemaphore.usedString.acquire();
@@ -288,6 +278,8 @@ import java.awt.event.*;
         	finally {
         		StaticSemaphore.mutex.release();
         	}
+        	
+        	
         }if(e.getSource() == button3){ // button for sHIELD
         	try {
 				StaticSemaphore.usedString.acquire();
@@ -301,6 +293,7 @@ import java.awt.event.*;
         	finally {
         		StaticSemaphore.mutex.release();
         	}
+       
         }if(e.getSource() == out){ // BUTTON to go out
             Welcome welcome = new Welcome();
             welcome.setBounds(0,0,1000,700);
@@ -316,6 +309,6 @@ import java.awt.event.*;
             choose.setLocationRelativeTo(null);
             this.setVisible(false);
         }
-    } 
-     
- }
+    }
+
+}

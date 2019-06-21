@@ -162,7 +162,8 @@ public class ChooseCharacter extends JFrame implements ActionListener, ChangeLis
 
 		}
 		/*
-		 * if(e.getSource() == button2){ setChoosed( "xika"); StartGame start = new
+		 * if(e.getSource() == button2){
+		 * setChoosed( "xika"); StartGame start = new
 		 * StartGame(guestName,getChoosed()); start.setBounds(0,0,1000,700);
 		 * start.setVisible(true); start.setResizable(false);
 		 * start.setLocationRelativeTo(null); this.setVisible(false); }if(e.getSource()

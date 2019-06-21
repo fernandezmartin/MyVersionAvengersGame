@@ -50,7 +50,7 @@ public class InfinityGauntlet extends Weapon{
 		if (getInfinityStones().size()==0) {
 			throw new ArithmeticException();
 		}
-		return getInfinityStones().get(new Random().nextInt()%getInfinityStones().size()).produceAtack();
+		return getInfinityStones().get(new Random().nextInt(getInfinityStones().size())).produceAtack();
 	}
 	
 	
@@ -59,7 +59,7 @@ public class InfinityGauntlet extends Weapon{
 		if (getInfinityStones().size()==0) {
 			throw new ArithmeticException();
 		}
-		return getInfinityStones().get(new Random().nextInt()%getInfinityStones().size()).blockAtack();
+		return getInfinityStones().get(new Random().nextInt(getInfinityStones().size())).blockAtack();
 	}
 	
 	@Override
