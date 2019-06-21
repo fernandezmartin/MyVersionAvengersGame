@@ -7,4 +7,6 @@ public class StaticSemaphore {
 	public static Semaphore mutex;
 	public static Semaphore validString;
 	public static Semaphore usedString;
+	public static String choosed;
+	public static Thread t1;
 }

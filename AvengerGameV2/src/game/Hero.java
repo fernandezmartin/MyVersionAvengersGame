@@ -76,17 +76,9 @@ public class Hero extends Character {
 			return value;
 		}
 
-		@Override
-		public void getAtacked(int damageRecieved) {
-			super.setLife(super.getLife()-(damageRecieved-defendYourself()));
-			
-		}
 
-		@Override
-		public int lifeLeft() {
-			// TODO Auto-generated method stub
-			return getLife();
-		}
+
+
 		
 		@Override
 		public String toString() {

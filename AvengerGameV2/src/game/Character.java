@@ -26,7 +26,7 @@ public abstract class  Character implements Icombat {
 		private String getName() {
 			return name;
 		}
-		private void setName(String name) {
+		public void setName(String name) {
 			this.name = name;
 		}
 		protected int getLife() {
@@ -90,6 +90,30 @@ public abstract class  Character implements Icombat {
 				String strToReturn=getName();
 				return strToReturn;
 			}
+		
+		@Override
+		public void getAtacked(int damageRecieved) {
+			
+			try {
+				int defCap=defendYourself();
+				if (defCap<damageRecieved) {
+					this.setLife(this.getLife()-(damageRecieved-defCap));
+				}
+				
+				if (this.lifeLeft()<0) {
+					throw new OurException();
+				}
+			}catch (OurException e) {
+				this.setLife(0);
+			}
+		}
+		
+		@Override
+		public int lifeLeft() {
+		// TODO Auto-generated method stub
+		return getLife();
+		}
+
 		
 		public JSONObject getJsonFormt() {
 			JSONObject format= new JSONObject();

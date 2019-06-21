@@ -62,20 +62,9 @@ public class Villain extends Character{
 		return value;
 	}
 
-	@Override
-	public void getAtacked(int damageRecieved) {
-		int defendCap=defendYourself();
-		if (damageRecieved >= defendCap) {
-			super.setLife(getLife()-(damageRecieved-defendCap));
-		}
-		
-	}
 
-	@Override
-	public int lifeLeft() {
-		// TODO Auto-generated method stub
-		return super.getLife();
-	}
+
+
 	
 	@Override
 	public String toString() {

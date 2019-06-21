@@ -1,1 +1,1 @@
-{"Weapons":[{"MinDam":50,"MaxDef":35,"NameOfWeapon":"Mjolnir","MinDef":20,"MaxDam":80}],"Life":10000,"Name":"Thor"}
+{"Weapons":[{"MinDam":60,"MaxDef":40,"NameOfWeapon":"StormBreaker","MinDef":20,"MaxDam":90},{"MinDam":15,"MaxDef":80,"NameOfWeapon":"CapShield","MinDef":60,"MaxDam":40},{"MinDam":50,"MaxDef":35,"NameOfWeapon":"Mjolnir","MinDef":20,"MaxDam":80}],"Life":1000,"Name":"Thor"}

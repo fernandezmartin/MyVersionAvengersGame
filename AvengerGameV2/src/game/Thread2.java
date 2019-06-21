@@ -3,30 +3,21 @@ package game;
 import java.util.Scanner;
 
 public class Thread2 implements Runnable{
+	
+	public Thread2() {
+		super();
+	}
 
 	@Override
 	public void run() {
-		Scanner scan=new Scanner(System.in);
-		while (true) {
-			try {
-				
-				StaticSemaphore.usedString.acquire();
-				StaticSemaphore.mutex.acquire();
-				StaticSemaphore.nameOfWeaponChoosedByUser=scan.next();
-				StaticSemaphore.validString.release();
-				
-				
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			finally {
-				StaticSemaphore.mutex.release();
-			}
-			
-		}
-		
+			Battle<Character, Character> game = new Battle<Character, Character>();
+			Character playerOne=Json.bringUpCharacter(StaticSemaphore.choosed);
+			Character playerTwo=Json.bringUpCharacter("Thanos");
+			game.fightToDeath(playerOne, playerTwo);
+			System.out.println("Exito");
 	}
+		
+}
 	
 
-}
+
